@@ -15,9 +15,11 @@ public class TicTacToe {
 
         if (isWin(x, y)) {
             return lastPlayer + " is the winner";
+        } else if (isDraw()) {
+            return "The result is draw";
+        } else {
+            return "No winner";
         }
-
-        return "No winner";
     }
 
     private void checkAxis(int axis) {
@@ -62,5 +64,16 @@ public class TicTacToe {
         }
 
         return false;
+    }
+
+    private boolean isDraw() {
+        for (int x = 0; x < SIZE; x++) {
+            for (int y = 0; y < SIZE; y++) {
+                if (board[x][y] == '\0') {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
