@@ -41,4 +41,15 @@ public class TicTacToeSpec {
         assertTrue(caughtException() instanceof RuntimeException);
         assertThat(caughtException().getMessage()).isEqualTo("Box is occupied");
     }
+
+    @Test
+    public void givenFirstTurnWhenNextPlayerThenX() {
+        assertThat(ticTacToe.nextPlayer()).isEqualTo('X');
+    }
+
+    @Test
+    public void givenLastTurnWasXWhenNextPlayerThenO() {
+        ticTacToe.play(1, 1);
+        assertThat(ticTacToe.nextPlayer()).isEqualTo('O');
+    }
 }
